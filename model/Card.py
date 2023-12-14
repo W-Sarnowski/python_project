@@ -48,4 +48,5 @@ class Card(abc.ABC):
         pass
 
     def see_on_scryfall(self) -> str:
-        return f'https://scryfall.com/search?q=name%3A%22{self._name}%22+set%3A%22{self._expansion}%22&unique=cards&as=grid&order=name'
+        name = str.replace(self._name, " ", "%20")
+        return f'https://scryfall.com/search?q=name%3A%22{name}%22+set%3A%22{self._expansion}%22&unique=cards&as=grid&order=name'

@@ -8,14 +8,14 @@ class SpellCard(Card):
     def print(self):
         tmp = f'{self._name} from {self._expansion} that costs {self._price} and '
         if len(self._mana_pips) == 0:
-            tmp.__add__('has no mana cost')
+            tmp += 'has no mana cost'
         else:
-            tmp.__add__('has mana cost of ')
+            tmp += 'has mana cost of '
             for mana_pip in self._mana_pips:
                 if isinstance(mana_pip, int):
-                    tmp.__add__(str(mana_pip))
+                    tmp += str(mana_pip)
                 else:
-                    tmp.__add__(mana_pip.value)
+                    tmp += mana_pip.value
         print(tmp)
 
     def __init__(self, name: str, expansion: str, price: float, mana_pips: List[Color | int]):

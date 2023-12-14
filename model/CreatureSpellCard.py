@@ -12,10 +12,10 @@ class CreatureSpellCard(CreatureCard):
         if len(self._mana_pips) > 0:
             for mana_pip in self._mana_pips:
                 if isinstance(mana_pip, int):
-                    tmp.__add__(str(mana_pip))
+                    tmp += str(mana_pip)
                 else:
-                    tmp.__add__(mana_pip.value)
-        tmp.__add__(f' {self._power}/{self._toughness}')
+                    tmp += mana_pip.value
+        tmp += f' {self._power}/{self._toughness}'
         print(tmp)
 
     def __init__(self, name: str, expansion: str, price: float, power: int, toughness: int, mana_pips: List[Color | int]):
