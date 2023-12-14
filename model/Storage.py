@@ -1,5 +1,5 @@
 from typing import Dict
-from model import Card
+from model import Card, Order
 
 
 class Storage:
@@ -20,6 +20,14 @@ class Storage:
                 return True
         return False
 
+    def can_handle_order(self, order: Order) -> bool:
+        for (card, quantity) in order.get_order().items():
+            if not self._has_cards(card):
+                return False
+            if self._cards[card] < quantity:
+                return False
+        return True
+
     def remove_card(self, card: Card, count: int = 1):
         if isinstance(count, int) and count > 0:
             if self._has_cards(card):
@@ -30,8 +38,6 @@ class Storage:
                 else:
                     raise Exception("Not enough cards in storage")
             else:
-                print(card)
-                print(self._cards.keys())
                 raise Exception(f"Card {card.name} from {card.expansion} is not in the storage")
         else:
             raise Exception("Can't delete less than 1 card")

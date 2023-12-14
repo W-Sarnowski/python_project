@@ -41,7 +41,7 @@ class OrderQueue:
             total += order.calculate_price()
         return total
 
-    def get_order_value_discounted(self, index: int, discount_fun: Callable[[Order], float]) -> float:
+    def get_order_value_discounted_by_id(self, index: int, discount_fun: Callable[[Order], float]) -> float:
         order = self._orders[index]
         return order.calculate_price() - discount_fun(order)
 
@@ -50,3 +50,7 @@ class OrderQueue:
         for order in self._orders:
             total += order.calculate_price() - discount_fun(order)
         return total
+
+    @staticmethod
+    def get_order_value_discounted(order: Order, discount_fun: Callable[[Order], float]) -> float:
+        return order.calculate_price() - discount_fun(order)

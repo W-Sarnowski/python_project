@@ -53,3 +53,4 @@ class Order:
     def print(self):
         for i, card in enumerate(self._cards):
             card.print()
+            print(f'{self._cards[card]} copies were ordered costing total of {"{:.2f}".format(card.price * self._cards[card])}')
