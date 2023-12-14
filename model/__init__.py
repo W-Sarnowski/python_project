@@ -8,3 +8,4 @@ from .CreatureSpellCard import CreatureSpellCard
 from .CreatureTokenCard import CreatureTokenCard
 from .OrderQueue import OrderQueue
 from .Order import Order
+from .Storage import Storage

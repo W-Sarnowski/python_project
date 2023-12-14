@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from model import *
+from functions import *
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def test():
+    queue: OrderQueue = gen_test_order_queue()
+    storage: Storage = gen_test_storage()
+    handle_queue(queue, storage)
 
 
-# Press the green button in the gutter to run the script.
+def test_empty_queue():
+    queue: OrderQueue = OrderQueue()
+    storage: Storage = gen_test_storage()
+    handle_queue(queue, storage)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    test()
+    test_empty_queue()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

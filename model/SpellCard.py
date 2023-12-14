@@ -16,14 +16,16 @@ class SpellCard(Card):
                     tmp.__add__(str(mana_pip))
                 else:
                     tmp.__add__(mana_pip.value)
+        print(tmp)
 
     def __init__(self, name: str, expansion: str, price: float, mana_pips: List[Color | int]):
         super().__init__(name, expansion, price)
         number_count = len([i for i in mana_pips if isinstance(i, int)])
         if number_count <= 1:
-            num = next(i for i, v in enumerate(mana_pips) if isinstance(v, int))
-            mana_pips.insert(0, mana_pips.pop(mana_pips.index(num)))
-            if mana_pips[0] < 0:
+            num = [i for i in range(len(mana_pips)) if isinstance(mana_pips[i], int)]
+            if num:
+                mana_pips.insert(0, mana_pips.pop(num[0]))
+            if isinstance(mana_pips[0], int) and mana_pips[0] < 0:
                 raise Exception("Only normal numbers allowed")
             self._mana_pips = mana_pips
 

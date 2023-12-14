@@ -5,7 +5,7 @@ from .CreatureCard import CreatureCard
 from .TokenCard import TokenCard
 
 
-class CreatureTokenCard(CreatureCard, TokenCard):
+class CreatureTokenCard(CreatureCard):
 
     def print(self):
         tmp = f'{self._name} from {self._expansion} that costs {self._price} and is a {self._power}/{self._toughness} '

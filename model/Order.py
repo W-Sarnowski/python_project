@@ -4,11 +4,16 @@ from .Card import Card
 
 
 class Order:
-    def __init__(self, cards: Dict[Card, int] = {}):
+    def __init__(self, cards: Dict[Card, int] = None):
+        if cards is None:
+            cards = {}
         for i, (card, count) in enumerate(cards.items()):
             if count < 1:
                 raise Exception("Quantity can't be less than 1")
         self._cards = cards
+
+    def get_order(self) -> Dict[Card, int]:
+        return self._cards
 
     def calculate_price(self) -> float:
         price = 0
@@ -25,9 +30,15 @@ class Order:
         else:
             raise Exception("Can't add less than 1 card")
 
+    def _has_cards(self, card: Card):
+        for card_s in self._cards.keys():
+            if card_s == card:
+                return True
+        return False
+
     def remove_card(self, card: Card, count: int = 1):
         if isinstance(count, int) and count > 0:
-            if card in self._cards:
+            if self._has_cards(card):
                 if count < self._cards[card]:
                     self._cards[card] -= count
                 elif count == self._cards[card]:

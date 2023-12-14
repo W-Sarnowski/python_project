@@ -8,6 +8,16 @@ class Card(abc.ABC):
         if isinstance(price, (float, int)):
             self._price = price
 
+    def __eq__(self, other):
+        for p_self, p_other in zip(vars(self).values(), vars(other).values()):
+            if p_self != p_other:
+                return False
+        return True
+
+    def __hash__(self):
+        tmp = f'{self._name} {self._expansion} {self._price}'
+        return int(''.join(str(ord(c)) for c in tmp))
+
     @property
     def name(self) -> str:
         return self._name

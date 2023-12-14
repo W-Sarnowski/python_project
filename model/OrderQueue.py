@@ -8,6 +8,10 @@ class OrderQueue:
     def __init__(self, orders: deque['Order'] = deque()):
         self._orders = orders
 
+    @property
+    def orders(self) -> deque['Order']:
+        return self._orders
+
     def new_order(self, order: Order):
         self._orders.appendleft(order)
 
