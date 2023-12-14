@@ -8,11 +8,8 @@ from .SpellCard import SpellCard
 class CreatureSpellCard(SpellCard, CreatureCard):
 
     def print(self):
-        tmp = f'{self._name} from {self._expansion} costs {self._price} and is a '
-        if len(self._mana_pips) == 0:
-            tmp.__add__('has no mana cost')
-        else:
-            tmp.__add__('has mana cost of ')
+        tmp = f'{self._name} from {self._expansion} that costs {self._price} and is a '
+        if len(self._mana_pips) > 0:
             for mana_pip in self._mana_pips:
                 if isinstance(mana_pip, int):
                     tmp.__add__(str(mana_pip))

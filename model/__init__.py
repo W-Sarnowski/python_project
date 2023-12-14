@@ -6,4 +6,5 @@ from .LandCard import LandCard
 from .CreatureCard import CreatureCard
 from .CreatureSpellCard import CreatureSpellCard
 from .CreatureTokenCard import CreatureTokenCard
-from .Storage import Storage
+from .OrderQueue import OrderQueue
+from .Order import Order

@@ -3,7 +3,7 @@ from .Card import Card
 
 class LandCard(Card):
     def print(self):
-        print(f'{self._name} from {self._expansion} costs {self._price}')
+        print(f'{self._name} from {self._expansion} that costs {self._price}')
         if self._is_basic:
             print('You can play any number of copies in your deck')
 

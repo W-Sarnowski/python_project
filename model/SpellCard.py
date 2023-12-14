@@ -6,7 +6,7 @@ from .ColorEnum import Color
 
 class SpellCard(Card):
     def print(self):
-        tmp = f'{self._name} from {self._expansion} costs {self._price} and '
+        tmp = f'{self._name} from {self._expansion} that costs {self._price} and '
         if len(self._mana_pips) == 0:
             tmp.__add__('has no mana cost')
         else:

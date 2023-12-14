@@ -8,7 +8,7 @@ from .TokenCard import TokenCard
 class CreatureTokenCard(CreatureCard, TokenCard):
 
     def print(self):
-        tmp = f'{self._name} from {self._expansion} costs {self._price} and is a {self._power}/{self._toughness} '
+        tmp = f'{self._name} from {self._expansion} that costs {self._price} and is a {self._power}/{self._toughness} '
         if len(self._colors) == 0:
             tmp.__add__('colorless')
         for color in self._colors:

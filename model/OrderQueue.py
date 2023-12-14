@@ -1,0 +1,2 @@
+class OrderQueue:
+    pass

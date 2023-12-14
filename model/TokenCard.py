@@ -6,7 +6,7 @@ from .ColorEnum import Color
 
 class TokenCard(Card):
     def print(self):
-        tmp = f'{self._name} from {self._expansion} costs {self._price} and is '
+        tmp = f'{self._name} from {self._expansion} that costs {self._price} and is '
         if len(self._colors) == 0:
             tmp.__add__('colorless')
         for color in self._colors:

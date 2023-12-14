@@ -3,7 +3,7 @@ from .Card import Card
 
 class CreatureCard(Card):
     def print(self):
-        print(f'{self._name} from {self._expansion} costs {self._price} and it\'s a {self._power}/{self._toughness}')
+        print(f'{self._name} from {self._expansion} that costs {self._price} and is a {self._power}/{self._toughness}')
 
     def __init__(self, name: str, expansion: str, price: float, power: int, toughness: int):
         super().__init__(name, expansion, price)
