@@ -23,6 +23,8 @@ class SpellCard(Card):
         if number_count <= 1:
             num = next(i for i, v in enumerate(mana_pips) if isinstance(v, int))
             mana_pips.insert(0, mana_pips.pop(mana_pips.index(num)))
+            if mana_pips[0] < 0:
+                raise Exception("Only normal numbers allowed")
             self._mana_pips = mana_pips
 
     @property
